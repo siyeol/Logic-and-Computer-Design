@@ -1,0 +1,13 @@
+// Nodified by Minho Kim (9 Oct 2014)
+
+/**
+ * Buffer gate: out = in
+ */
+
+CHIP Buffer {
+    IN in;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+}

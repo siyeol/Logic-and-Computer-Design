@@ -1,0 +1,23 @@
+// Modified by Minho Kim (9 Oct 2014)
+
+/** 
+ * Decoder4Way. d={0,0,0,1} if in==00,
+ *              d={0,0,1,0} if in==01,
+ *              d={0,1,0,0} if in==10,
+ *              d={1,0,0,0} if in==11
+ */
+
+CHIP Decoder4Way {
+    IN in[2];
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+    Not(in=in[1], out=not1);
+    Not(in=in[0], out=not0);
+    And(a=in[1], b=in[0], out=out[3]);
+    And(a=in[1], b=not0, out=out[2]);
+    And(a=not1, b=in[0], out=out[1]);
+    And(a=not1, b=not0, out=out[0]);
+
+}

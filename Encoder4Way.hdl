@@ -1,0 +1,19 @@
+// Modified by Minho Kim (9 Oct 2014)
+
+/** 
+ * Encoder4Way. out=00 if in==0001,
+ *              out=01 if in==0010,
+ *              out=10 if in==0100,
+ *              out=11 if in==1000,
+ */
+
+CHIP Encoder4Way {
+    IN in[4];
+    OUT out[2];
+
+    PARTS:
+    // Put your code here:
+
+    Or(a=in[3], b=in[2], out=out[1]);
+    Or(a=in[3], b=in[1], out=out[0]);
+}

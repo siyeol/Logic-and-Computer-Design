@@ -1,0 +1,9 @@
+CHIP Comp16 {
+    IN in[16], sel;
+    OUT out[16];
+
+    PARTS:
+   // Put you code here:
+    Not16(in=in, out=x);
+    Mux16(a=in, b=x, sel=sel, out=out);   
+}

@@ -1,0 +1,25 @@
+// AddSub8 by Minho Kim
+// 2020/5/8
+
+/**
+ * a, b: input data (8bit)
+ * sub: control bit for addition(sub=0) and subtraction(sub=1)
+ * out: output data (8bit)
+ * err: overflow for addition, underflow for subtraction
+ */
+
+CHIP AddSub8 {
+    IN a[8], b[8], sub;
+    OUT out[8], err;
+
+    PARTS:
+   // Put you code here:
+   OnesComp8(in=b, inv=sub, out=compb);
+   Add8(a=a, b=compb, CI=sub, out=out, CO=co);
+   Xor(a=co, b=sub, out=err);
+
+
+}                   
+                    
+                    
+                    

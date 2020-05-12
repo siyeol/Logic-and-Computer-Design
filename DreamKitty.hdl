@@ -1,0 +1,29 @@
+/**
+ * DreamKitty:
+ * out = d and ((~(a or b)) or (a and (b or c))) or (b and ~c)
+ */
+
+CHIP DreamKitty {
+    IN a, b, c, d;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+
+    Not(in=b, out=notb);
+    Not(in=c, out=notc);
+    Not(in=a, out=nota);
+
+    And(a=notb, b=notc, out=W);
+    And(a=notb, b=c, out=T);
+    And(a=b, b=notc, out=B);
+    Not(in=W, out=notW);
+
+    Or(a=W, b=T, out=p);
+    And(a=nota, b=p, out=q);
+    And(a=a, b=notW, out=r);
+    Or(a=q, b=r, out=s);
+    And(a=d, b=s, out=t);
+    Or(a=t, b=B, out=out);
+
+}
